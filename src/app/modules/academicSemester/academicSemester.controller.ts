@@ -15,6 +15,18 @@ const insertSemester = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllSemester = catchAsync(async (req: Request, res: Response) => {
+  const result = await academicSemesterService.getAllSemester();
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semester Find!!',
+    meta: result.meta,
+    data: result.data,
+  });
+});
+
 export const academicSemesterController = {
   insertSemester,
+  getAllSemester,
 };
