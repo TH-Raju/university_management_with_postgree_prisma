@@ -64,3 +64,21 @@ model Student {
 
   @@map("students")
 }
+
+model Faculty {
+  id String @id @default(uuid())
+  facultyId String
+  firstName String
+  lastName String
+  middleName String
+  profileImage String
+  email String
+  contactNo Int
+  gender String
+  bloodGroup String
+  designation String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("faculties")
+}
