@@ -5,6 +5,7 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { academicSemesterService } from './academicSemester.service';
+import { AcademicSemesterFilterAbleFields } from './academicSemester.constants';
 
 const insertSemester = catchAsync(async (req: Request, res: Response) => {
   const result = await academicSemesterService.insertSemester(req.body);
@@ -18,12 +19,7 @@ const insertSemester = catchAsync(async (req: Request, res: Response) => {
 
 const getAllSemester = catchAsync(async (req: Request, res: Response) => {
   //   console.log(req.query);
-  const filters = pick(req.query, [
-    'searchTerm',
-    'code',
-    'startMonth',
-    'endMonth',
-  ]);
+  const filters = pick(req.query, AcademicSemesterFilterAbleFields);
   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
   console.log('filters', filters);
   console.log('options', options);
