@@ -26,7 +26,7 @@ model AcademicSemester {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("academic_semester")
+  @@map("academic_semesters")
 }
 
 
@@ -46,4 +46,21 @@ model AcademicDepartment {
   updatedAt DateTime @updatedAt
 
   @@map("academic_departments")
+}
+
+model Student {
+  id String @id @default(uuid())
+  studentId String
+  firstName String
+  lastName String
+  middleName String
+  profileImage String
+  email String
+  contactNo Int
+  gender String
+  bloodGroup String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("students")
 }
